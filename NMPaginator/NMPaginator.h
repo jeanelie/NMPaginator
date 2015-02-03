@@ -6,11 +6,11 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
-    RequestStatusNone,
-    RequestStatusInProgress,
-    RequestStatusDone // request succeeded or failed
-} RequestStatus;
+typedef NS_ENUM(NSUInteger, RequestStatus) {
+  RequestStatusNone,
+  RequestStatusInProgress,
+  RequestStatusDone // request succeeded or failed
+};
 
 @protocol NMPaginatorDelegate;
 
@@ -33,7 +33,8 @@ typedef enum {
 - (void)fetchNextPage;
 
 // call these from subclass when you receive the results
-- (void)receivedResults:(NSArray *)results total:(NSInteger)total;
+- (void)receivedResults:(NSArray *)results total:(NSInteger)total withInfos:(NSDictionary *)infos;
+
 - (void)failed;
 
 @end
@@ -41,9 +42,11 @@ typedef enum {
 @protocol NMPaginatorDelegate <NSObject>
 
 @required
-- (void)paginator:(id)paginator didReceiveResults:(NSArray *)results;
+
+- (void)paginator:(id)paginator didReceiveResults:(NSArray *)results withInfos:(NSDictionary *)infos;
 
 @optional
+
 - (void)paginatorDidFailToRespond:(id)paginator;
 - (void)paginatorDidReset:(id)paginator;
 
