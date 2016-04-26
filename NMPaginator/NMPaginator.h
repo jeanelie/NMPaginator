@@ -32,6 +32,8 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
 - (void)fetchFirstPage;
 - (void)fetchNextPage;
 
+- (void)fetchResultsWithPage:(NSInteger)page pageSize:(NSInteger)pageSize;
+
 // call these from subclass when you receive the results
 - (void)receivedResults:(NSArray *)results total:(NSInteger)total withInfos:(NSDictionary *)infos;
 
