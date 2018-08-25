@@ -11,11 +11,11 @@ Pod::Spec.new do |s|
     LICENSE
   }
 
-  s.author       = 'Nicolas Mondollot'
-  s.source       = { :git => "https://github.com/jeanelie/NMPaginator.git", :tag => '2.1.0' }
-  s.platform     = :ios
+  s.author                = 'Nicolas Mondollot'
+  s.source                = { :git => "https://github.com/jeanelie/NMPaginator.git", :tag => '2.1.0' }
+  s.platform              = :ios
   s.ios.deployment_target = '9.0'
-  s.frameworks   = 'Foundation', 'UIKit', 'CoreGraphics'
-  s.source_files = 'NMpaginator/NMpaginator.{m,h}'
-  s.requires_arc = true
+  s.frameworks            = 'Foundation', 'UIKit', 'CoreGraphics'
+  s.source_files          = 'NMpaginator/NMpaginator.{m,h}'
+  s.requires_arc          = true
 end
