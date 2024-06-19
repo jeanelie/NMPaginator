@@ -78,6 +78,19 @@
   }
 }
 
+- (void)fetchNextPageWithPageSize:(NSInteger)pageSize
+{
+  // don't do anything if there's already a request in progress
+  if(self.requestStatus == RequestStatusInProgress)
+    return;
+
+  if(![self reachedLastPage]) {
+    self.requestStatus = RequestStatusInProgress;
+    self.pageSize = pageSize;
+    [self fetchResultsWithPage:self.page+1 pageSize:self.pageSize];
+  }
+}
+
 #pragma mark - Subclass methods
 
 - (void)fetchResultsWithPage:(NSInteger)page pageSize:(NSInteger)pageSize

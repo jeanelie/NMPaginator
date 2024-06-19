@@ -31,6 +31,7 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
 
 - (void)fetchFirstPage;
 - (void)fetchNextPage;
+- (void)fetchNextPageWithPageSize:(NSInteger)pageSize;
 
 - (void)fetchResultsWithPage:(NSInteger)page pageSize:(NSInteger)pageSize;
 
